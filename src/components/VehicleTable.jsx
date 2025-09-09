@@ -2,7 +2,7 @@ import sprite from "../assets/_sprite.svg";
 
 export default function VehicleTable({ items, loading, onEdit, onDelete }) {
     return (
-        <div className="overflow-hidden  bg-white shadow-sm">
+        <section className="overflow-hidden  bg-white shadow-sm">
             <table className="table-auto w-full text-sm   border-collapse">
                 <thead className="bg-Rojo2 text-white">
                     <tr className="w-full gap-3">
@@ -19,9 +19,9 @@ export default function VehicleTable({ items, loading, onEdit, onDelete }) {
                 ) : (
                     items.map((v) => (
                     <tr key={v.id} className="odd:bg-white even:bg-slate-50 border-b border-Rojo2">
-                        <td className="px-3 py-2 text-center">{v.brand}</td>
-                        <td className="px-3 py-2 text-center">{v.arrival_location}</td>
-                        <td className="px-3 py-2 text-center">
+                        <td className="px-1 py-2 text-start">{v.brand}</td>
+                        <td className="px-1 py-2 text-start">{v.arrival_location}</td>
+                        <td className="px-1 py-2 text-start">
                             <div className="flex justify-between">
                                 <span>{v.applicant}</span>
                                 <div className="flex gap-3">
@@ -43,6 +43,6 @@ export default function VehicleTable({ items, loading, onEdit, onDelete }) {
                     )}
                 </tbody>
             </table>
-        </div>
+        </section>
     )
 }

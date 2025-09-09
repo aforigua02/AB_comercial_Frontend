@@ -26,8 +26,8 @@ export default function Home() {
     return (
         <>
         <Hero />
-        <section id="vehicles" className="mx-auto max-w-6xl px-4 py-10 space-y-6 ">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <section id="vehicles" className="mx-auto max-w-6xl px-4 py-10 space-y-6">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <h2 className="text-2xl font-semibold text-slate-800">Vehicles</h2>
             <input
                 type="search"
@@ -38,39 +38,37 @@ export default function Home() {
             />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="md:col-span-1">
-                <VehicleForm
-                defaultValues={editing || undefined}
-                onSubmit={editing ? handleUpdate : handleCreate}
-                onCancel={editing ? () => setEditing(null) : undefined}
-                />
-            </div>
-
-            <div className="md:col-span-2 space-y-5">
-                <VehicleTable
-                items={items}
-                loading={loading}
-                onEdit={(v) => setEditing(v)}
-                onDelete={handleDelete}
-                />
-
-                <div className="flex items-center justify-between text-sm">
-                <button
-                    onClick={() => setPage((p) => Math.max(1, p - 1))}
-                    className="rounded-md border px-3 py-2 hover:bg-slate-50"
-                >
-                    Anterior
-                </button>
-                <div>Página {page} de {totalPages}</div>
-                <button
-                    onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-                    className="rounded-md border px-3 py-2 hover:bg-slate-50"
-                >
-                    Siguiente
-                </button>
+            <div className="grid grid-cols-1 md:grid-cols-3  gap-15">
+                <div className="md:col-span-1">
+                    <VehicleForm
+                    defaultValues={editing || undefined}
+                    onSubmit={editing ? handleUpdate : handleCreate}
+                    onCancel={editing ? () => setEditing(null) : undefined}
+                    />
                 </div>
-            </div>
+
+                <div className="md:col-span-2 space-y-8">
+                    <VehicleTable
+                    items={items}
+                    loading={loading}
+                    onEdit={(v) => setEditing(v)}
+                    onDelete={handleDelete}
+                    />
+
+                    <div className="flex items-center justify-between text-sm">
+                    <button
+                        onClick={() => setPage((p) => Math.max(1, p - 1))}
+                        className="rounded-md border px-3 py-2 hover:bg-slate-50"
+                    >
+                        Anterior
+                    </button>
+                    <div>Página {page} de {totalPages}</div>
+                        <button onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                            className="rounded-md border px-3 py-2 hover:bg-slate-50">
+                            Siguiente
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
         </>
