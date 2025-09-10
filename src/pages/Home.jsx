@@ -2,24 +2,36 @@ import { useState } from 'react'
 import Hero from '../components/Hero'
 import VehicleForm from '../components/vehicleForm'
 import VehicleTable from '../components/VehicleTable'
+import ConfirmDialog from '../components/ConfirmDialog'
 import { useVehicles } from '../hooks/useVehicles'
+import { toast } from 'react-hot-toast'
+
 
 export default function Home() {
     const { items, loading, q, setQ, page, setPage, totalPages, create, update, remove } = useVehicles()
     const [editing, setEditing] = useState(null)
+    const [confirmData, setConfirmData] = useState(null)
 
     async function handleCreate(values) {
         await create(values)
+        toast.success('Vehículo creado correctamente 🚗')
     }
 
     async function handleUpdate(values) {
         await update(editing.id, values)
         setEditing(null)
+        toast.success('Vehículo actualizado ✅')
     }
 
-    async function handleDelete(v) {
-        if (confirm(`¿Eliminar ${v.brand} - ${v.arrival_location}?`)) {
-        await remove(v.id)
+    function handleDelete(v) {
+        setConfirmData(v) // abre el modal
+    }
+
+    async function confirmDelete() {
+        if (confirmData) {
+        await remove(confirmData.id)
+        toast.error("Vehículo eliminado 🗑️")
+        setConfirmData(null)
         }
     }
 
@@ -54,6 +66,13 @@ export default function Home() {
                     onEdit={(v) => setEditing(v)}
                     onDelete={handleDelete}
                     />
+                    <ConfirmDialog
+                    open={!!confirmData}
+                    title="Confirmar eliminación"
+                    message={`¿Eliminar ${confirmData?.brand} - ${confirmData?.arrival_location}?`}
+                    onConfirm={confirmDelete}
+                    onCancel={() => setConfirmData(null)}
+                />
 
                     <div className="flex items-center justify-between text-sm">
                     <button

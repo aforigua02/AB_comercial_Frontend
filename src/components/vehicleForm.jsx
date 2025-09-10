@@ -148,27 +148,27 @@ return (
         <div className="mt-6 flex items-center justify-end gap-3">
             {isEditing && (
             <>
-            <button
-            type="button"
-            onClick={cancelAll}
-            aria-label="Cancelar edición"
-            className={[
-                'inline-flex h-10 w-10 items-center justify-center rounded-full',
-                'bg-pink-600 text-white shadow hover:scale-[1.03] active:scale-95',
-                'transition-transform',
-            ].join(' ')}
-            >
-                <img src={IconCancelar} alt="Cancelar" className="h-6 w-6" />
-            </button>
+                <button
+                    type="button"
+                    onClick={cancelAll}
+                    aria-label="Cancelar edición"
+                    className={[
+                        'inline-flex  items-center justify-center rounded-full',
+                        ' text-white shadow hover:scale-[1.03] active:scale-95',
+                        'transition-transform',
+                    ].join(' ')}
+                    >
+                    <img src={IconCancelar} alt="Cancelar" className="w-8" />
+                </button>
 
-            <button
-                type="submit"
-                disabled={isSubmitting}
-                aria-label="Guardar cambios"
-                className={['inline-flex h-10 w-10 items-center justify-center rounded-full','bg-cyan-500 text-white shadow hover:scale-[1.03] active:scale-95', 'transition-transform disabled:opacity-60',
-                ].join(' ')}>
-                <img src={IconConfirmar} alt="Confirmar" className="h-6 w-6" />
-            </button>
+                <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    aria-label="Guardar cambios"
+                    className={['inline-flex  items-center justify-center rounded-full',' text-white shadow hover:scale-[1.03] active:scale-95', 'transition-transform disabled:opacity-60',
+                    ].join(' ')}>
+                    <img src={IconConfirmar} alt="Confirmar" className="w-8" />
+                </button>
             </>
             )}
 
@@ -177,7 +177,7 @@ return (
                 <button
                     type="button"
                     onClick={cancelAll}
-                    className={['rounded-2xl border-2 border-pink-600 px-6 py-2 text-pink-600','shadow-sm hover:bg-pink-50 transition-colors',
+                    className={['rounded-2xl border-2 border-pink-600 px-6 py-2','shadow-sm hover:bg-pink-50 transition-colors',
                     ].join(' ')}>
                     Cancelar
                 </button>

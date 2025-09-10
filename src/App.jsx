@@ -1,3 +1,4 @@
+import { Toaster } from 'react-hot-toast'
 import Header from './components/Header'
 import Home from './pages/Home'
 import Footer from './components/footer'
@@ -12,6 +13,7 @@ export default function App() {
         </div>
       </main>
       <Footer />
+      <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
     </div>
   )
 }

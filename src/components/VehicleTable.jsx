@@ -30,8 +30,8 @@ export default function VehicleTable({ items, loading, onEdit, onDelete }) {
                                         <use xlinkHref={`${sprite}#Icon_editar1`} />
                                     </svg>
                                     </button>
-                                    <button onClick={() => onDelete(v)} >
-                                        <svg width="28" height="28" className="cursor-pointer">
+                                    <button onClick={() => onDelete(v)} className="cursor-pointer">
+                                        <svg width="28" height="28" >
                                             <use xlinkHref={`${sprite}#Icon_eliminar1`} />
                                         </svg>
                                     </button>
