@@ -1,4 +1,3 @@
-// src/components/ConfirmDialog.jsx
 export default function ConfirmDialog({ open, title, message, onConfirm, onCancel }) {
     if (!open) return null;
 

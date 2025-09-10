@@ -1,10 +1,9 @@
-// src/components/VehicleForm.jsx
 import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-// --- ICONOS (gris / color)
+
 import IconVehiculo from '../assets/Icon_vehiculo.svg'
 import IconVehiculo1 from '../assets/Icon_vehiculo1.svg'
 import IconPunto from '../assets/Icon_puntoubicacion.svg'
@@ -12,19 +11,16 @@ import IconPunto1 from '../assets/Icon_puntoubicacion1.svg'
 import IconPersona from '../assets/Icon_persona.svg'
 import IconPersona1 from '../assets/Icon_persona1.svg'
 
-// Botones
 import IconCrear from '../assets/Icon_crear.svg'
 import IconConfirmar from '../assets/Icon_confirmar.svg'
 import IconCancelar from '../assets/Icon_cancelar.svg'
 
-// ====== Validaciones ======
 const schema = z.object({
     brand: z.string().min(1, 'Requerido'),
     arrival_location: z.string().min(1, 'Requerido'),
     applicant: z.string().min(1, 'Requerido'),
 })
 
-// ====== Campo con ícono a la izquierda ======
 function Field({ icon, iconActive, register, name, placeholder, error, disabled, active }) {
     const src = active ? iconActive : icon
 
@@ -53,7 +49,6 @@ return (
     )
 }
 
-// ====== Form principal ======
 export default function VehicleForm({ onSubmit, defaultValues, onCancel }) {
     const {
         register,
@@ -109,7 +104,7 @@ return (
             : 'border border-gray-400/40',
         ].join(' ')}
     >
-        <button type="button" onClick={activateCreate} aria-pressed={isCreateActive} title="Nuevo" className="absolute left-5 top-4">
+        <button type="button" onClick={activateCreate} aria-pressed={isCreateActive} title="Nuevo" className="absolute left-5 top-4 cursor-pointer">
             <img src={IconCrear} alt="Crear" className="h-7 w-7 select-none" draggable="false" />
         </button>
 
@@ -155,7 +150,7 @@ return (
                     className={[
                         'inline-flex  items-center justify-center rounded-full',
                         ' text-white shadow hover:scale-[1.03] active:scale-95',
-                        'transition-transform',
+                        'transition-transform cursor-pointer',
                     ].join(' ')}
                     >
                     <img src={IconCancelar} alt="Cancelar" className="w-8" />
@@ -165,7 +160,7 @@ return (
                     type="submit"
                     disabled={isSubmitting}
                     aria-label="Guardar cambios"
-                    className={['inline-flex  items-center justify-center rounded-full',' text-white shadow hover:scale-[1.03] active:scale-95', 'transition-transform disabled:opacity-60',
+                    className={['inline-flex  items-center justify-center rounded-full',' text-white shadow hover:scale-[1.03] active:scale-95', 'transition-transform disabled:opacity-60 cursor-pointer',
                     ].join(' ')}>
                     <img src={IconConfirmar} alt="Confirmar" className="w-8" />
                 </button>
@@ -177,12 +172,12 @@ return (
                 <button
                     type="button"
                     onClick={cancelAll}
-                    className={['rounded-2xl border-2 border-pink-600 px-6 py-2','shadow-sm hover:bg-pink-50 transition-colors',
+                    className={['rounded-2xl border-2 border-pink-600 px-6 py-2','shadow-sm hover:bg-pink-50 transition-colors cursor-pointer',
                     ].join(' ')}>
                     Cancelar
                 </button>
 
-                <button type="submit" disabled={isSubmitting} className={['rounded-2xl border-2 border-cyan-500 px-6 py-2 text-cyan-600','shadow-sm hover:bg-cyan-50 transition-colors disabled:opacity-60',].join(' ')}>
+                <button type="submit" disabled={isSubmitting} className={['rounded-2xl border-2 border-cyan-500 px-6 py-2 text-cyan-600','shadow-sm hover:bg-cyan-50 transition-colors disabled:opacity-60 cursor-pointer' ,].join(' ')}>
                     Crear
                 </button>
                 </>

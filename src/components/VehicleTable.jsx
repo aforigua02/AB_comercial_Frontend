@@ -1,5 +1,3 @@
-import sprite from "../assets/_sprite.svg";
-
 export default function VehicleTable({ items, loading, onEdit, onDelete }) {
     return (
         <section className="overflow-hidden  bg-white shadow-sm">
@@ -27,12 +25,12 @@ export default function VehicleTable({ items, loading, onEdit, onDelete }) {
                                 <div className="flex gap-3">
                                     <button onClick={() => onEdit(v)} >
                                     <svg width="28" height="28" className="cursor-pointer">
-                                        <use xlinkHref={`${sprite}#Icon_editar1`} />
+                                        <use href="#Icon_editar1"/>
                                     </svg>
                                     </button>
                                     <button onClick={() => onDelete(v)} className="cursor-pointer">
                                         <svg width="28" height="28" >
-                                            <use xlinkHref={`${sprite}#Icon_eliminar1`} />
+                                            <use href="#Icon_eliminar1" />
                                         </svg>
                                     </button>
                                 </div>

@@ -6,7 +6,7 @@ export default function Header() {
             <nav className="mx-auto max-w-6xl px-4 h-14 flex items-center justify-between">
                 <div className="font-semibold text-pink-600">
                     <svg  className="h-8 w-8 mt-5">
-                        <use xlinkHref={`${sprite}#Imagologo_motion`} />
+                        <use href={`${sprite}#Imagologo_motion`} />
                     </svg>
                 </div>
             </nav>
